@@ -9,6 +9,10 @@ namespace maskup
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            using(AirDbModel model = new AirDbModel())
+            {
+                model.Database.CreateIfNotExists();
+            }
         }
     }
 }
