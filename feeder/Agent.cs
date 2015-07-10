@@ -16,6 +16,8 @@ namespace feeder
 {
     public class Agent
     {
+        private AirModel db = new AirModel();
+
         private string _GetAirDataFromPage()
         {
             string res = "";
@@ -63,6 +65,8 @@ namespace feeder
             {
                 JObject jobject = JObject.Parse(item);
                 AirCondiction air = ReflectionToAssignObject(jobject);
+                db.AirCondiction.Add(air);
+                db.SaveChanges();
             }
         }
 
@@ -80,6 +84,7 @@ namespace feeder
             {
                 string key = item.Key;
                 string value = item.Value.Value<string>();
+                if (string.IsNullOrEmpty(value) || value.Trim() == "-") continue;
 
                 foreach (PropertyInfo prop in props)
                 {
