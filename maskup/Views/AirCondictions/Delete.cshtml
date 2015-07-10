@@ -1,0 +1,104 @@
+﻿@model maskup.POCO.AirCondiction
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AirCondiction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.locationCht)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.locationCht)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pm10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pm10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pm25)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pm25)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.o3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.o3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.so2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.so2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.co)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.co)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fpmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fpmi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
