@@ -14,10 +14,8 @@ using System.Threading.Tasks;
 
 namespace feeder
 {
-    public class Agent
+    public class RequestAgent
     {
-        private AirModel db = new AirModel();
-
         private string _GetAirDataFromPage()
         {
             string res = "";
@@ -40,7 +38,7 @@ namespace feeder
             return res;
         }
 
-        public List<string> GetAllAreaAirData()
+        public List<string> GetAllAirDataFromRequest()
         {
             string htmlStr = _GetAirDataFromPage();
 
@@ -57,42 +55,6 @@ namespace feeder
             }
 
             return targetList;
-        }
-
-        public void InsertDataInfoDb(List<string> dataList)
-        {
-            foreach (string item in dataList)
-            {
-                JObject jobject = JObject.Parse(item);
-                AirCondiction air = ReflectionToAssignObject(jobject);
-                db.AirCondiction.Add(air);
-                db.SaveChanges();
-            }
-        }
-
-        private AirCondiction ReflectionToAssignObject(JObject jsonObject)
-        {
-            AirCondiction airCondiction = new AirCondiction();
-            PropertyInfo[] props = airCondiction.GetType().GetProperties();
-
-            airCondiction.location = jsonObject["SiteKey"].Value<string>();
-            airCondiction.locationCht = jsonObject["SiteName"].Value<string>();
-            airCondiction.datetime = DateTime.Now;
-            airCondiction.id = Guid.NewGuid();
-
-            foreach (var item in jsonObject)
-            {
-                string key = item.Key;
-                string value = item.Value.Value<string>();
-                if (string.IsNullOrEmpty(value) || value.Trim() == "-") continue;
-
-                foreach (PropertyInfo prop in props)
-                {
-                    if (String.Compare(key, prop.Name, true) != 0) continue;
-                    prop.SetValue(airCondiction, Convert.ChangeType(value, prop.PropertyType));
-                }
-            }
-            return airCondiction;
         }
     }
 }

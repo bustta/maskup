@@ -1,4 +1,6 @@
-﻿using Microsoft.Azure.WebJobs;
+﻿using feeder.Service;
+using Microsoft.Azure.WebJobs;
+using System;
 using System.IO;
 
 namespace feeder
@@ -14,8 +16,15 @@ namespace feeder
             message = value.ToString();
             log.WriteLine("Following message will be written on the Queue={0}", message);
 
-            Agent agent = new Agent();
-            agent.GetAllAreaAirData();
+            try
+            {
+                AirCondictionService repo = new AirCondictionService();
+                repo.InsertWithReflectionBinding(new RequestAgent().GetAllAirDataFromRequest());
+            }
+            catch (Exception ex)
+            {
+                log.WriteLine(ex);
+            }
         }
     }
 }

@@ -87,12 +87,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agent.cs" />
-    <Compile Include="AirCondiction.cs" />
+    <Compile Include="RequestAgent.cs" />
+    <Compile Include="Binding\AirCondiction.cs" />
     <Compile Include="AirModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AirCondictionService.cs" />
+    <Compile Include="Util\DataMapping.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

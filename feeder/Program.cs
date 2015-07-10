@@ -1,9 +1,4 @@
 ﻿using Microsoft.Azure.WebJobs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace feeder
 {
@@ -14,13 +9,10 @@ namespace feeder
         // AzureWebJobsDashboard and AzureWebJobsStorage
         private static void Main()
         {
-            //             var host = new JobHost();
-            //             // The following code will invoke a function called ManualTrigger and
-            //             // pass in data (value in this case) to the function
-            //             host.Call(typeof(Functions).GetMethod("ManualTrigger"), new { value = 20 });
-            Agent agent = new Agent();
-
-            agent.InsertDataInfoDb(agent.GetAllAreaAirData());
+            var host = new JobHost();
+            // The following code will invoke a function called ManualTrigger and
+            // pass in data (value in this case) to the function
+            host.Call(typeof(Functions).GetMethod("ManualTrigger"), new { value = 20 });
         }
     }
 }

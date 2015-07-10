@@ -1,4 +1,4 @@
-namespace feeder
+namespace feeder.Binding
 {
     using System;
     using System.Collections.Generic;
