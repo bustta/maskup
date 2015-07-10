@@ -1,16 +1,22 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace feeder
 {
-    internal class Agent
+    public class Agent
     {
-        public string GetAirDataFromPage()
+        private string _GetAirDataFromPage()
         {
             string res = "";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://taqm.epa.gov.tw/taqm/tw/PsiMap.aspx");
@@ -30,6 +36,58 @@ namespace feeder
             }
 
             return res;
+        }
+
+        public List<string> GetAllAreaAirData()
+        {
+            string htmlStr = _GetAirDataFromPage();
+
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(htmlStr);
+            HtmlNodeCollection nodeCollection = document.DocumentNode.SelectNodes("//area");
+            List<string> targetList = new List<string>();
+            foreach (HtmlNode node in nodeCollection)
+            {
+                if (node.Attributes["jTitle"] == null) continue;
+
+                string targetInfo = node.Attributes["jTitle"].Value;
+                targetList.Add(targetInfo);
+            }
+
+            return targetList;
+        }
+
+        public void InsertDataInfoDb(List<string> dataList)
+        {
+            foreach (string item in dataList)
+            {
+                JObject jobject = JObject.Parse(item);
+                AirCondiction air = ReflectionToAssignObject(jobject);
+            }
+        }
+
+        private AirCondiction ReflectionToAssignObject(JObject jsonObject)
+        {
+            AirCondiction airCondiction = new AirCondiction();
+            PropertyInfo[] props = airCondiction.GetType().GetProperties();
+
+            airCondiction.location = jsonObject["SiteKey"].Value<string>();
+            airCondiction.locationCht = jsonObject["SiteName"].Value<string>();
+            airCondiction.datetime = DateTime.Now;
+            airCondiction.id = Guid.NewGuid();
+
+            foreach (var item in jsonObject)
+            {
+                string key = item.Key;
+                string value = item.Value.Value<string>();
+
+                foreach (PropertyInfo prop in props)
+                {
+                    if (String.Compare(key, prop.Name, true) != 0) continue;
+                    prop.SetValue(airCondiction, Convert.ChangeType(value, prop.PropertyType));
+                }
+            }
+            return airCondiction;
         }
     }
 }

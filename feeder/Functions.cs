@@ -14,7 +14,8 @@ namespace feeder
             message = value.ToString();
             log.WriteLine("Following message will be written on the Queue={0}", message);
 
-            new Agent().GetAirDataFromPage();
+            Agent agent = new Agent();
+            agent.GetAllAreaAirData();
         }
     }
 }
