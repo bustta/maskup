@@ -1,4 +1,6 @@
-﻿using Microsoft.Azure.WebJobs;
+﻿using feeder.Service;
+using Microsoft.Azure.WebJobs;
+using System;
 
 namespace feeder
 {

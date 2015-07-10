@@ -9,7 +9,7 @@ namespace feeder
     public partial class AirModel : DbContext
     {
         public AirModel()
-            : base("name=AirModel4Feeder")
+            : base("name=AirModel")
         {
         }
 
