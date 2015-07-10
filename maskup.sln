@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maskup", "maskup\maskup.csproj", "{F3E13F17-0BAB-4471-AC7E-7F0DA8286C39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maskup.Tests", "maskup.Tests\maskup.Tests.csproj", "{97C84A95-466F-4A10-A309-EF9CD8786442}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3E13F17-0BAB-4471-AC7E-7F0DA8286C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3E13F17-0BAB-4471-AC7E-7F0DA8286C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3E13F17-0BAB-4471-AC7E-7F0DA8286C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3E13F17-0BAB-4471-AC7E-7F0DA8286C39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C84A95-466F-4A10-A309-EF9CD8786442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C84A95-466F-4A10-A309-EF9CD8786442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C84A95-466F-4A10-A309-EF9CD8786442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C84A95-466F-4A10-A309-EF9CD8786442}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
