@@ -3,85 +3,66 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="mdl-typography--text-center">
+    <h2>全台空氣品質</h2>
+</div>
 
-<h2>Index</h2>
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--3-col"></div>
+    <div class="mdl-cell mdl-cell--6-col ">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.locationCht)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.datetime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pm10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pm25)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.o3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.so2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.co)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.no2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fpmi)
-        </th>
-        <th></th>
-    </tr>
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">地點</th>
+                        <th>時間</th>
+                        <th>PM2.5</th>
+                        <th>PM10</th>
+                        <th>O3</th>
+                        <th>SO2</th>
+                        <th>CO</th>
+                        <th>NO2</th>
+                        <th>FPMI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+            {
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                @Html.DisplayFor(modelItem => item.locationCht)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.datetime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.pm25)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.pm10)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.o3)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.so2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.co)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.no2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fpmi)
+                            </td>
+                        </tr>
+            }
+                </tbody>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.locationCht)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.datetime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pm10)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pm25)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.o3)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.so2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.co)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.no2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fpmi)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
 
-</table>
+            </table>
+
+    </div>
+    <div class="mdl-cell mdl-cell--3-col"></div>
+</div>
