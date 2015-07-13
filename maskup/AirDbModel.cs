@@ -25,7 +25,7 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            var airTable = modelBuilder.Entity<AirCondiction>().ToTable("AirCondiction");
+            var airTable = modelBuilder.Entity<AirCondiction>().ToTable("AirCondictions");
             airTable.Property(c => c.location).IsRequired().HasMaxLength(250);
             airTable.Property(c => c.datetime).IsRequired();
 
