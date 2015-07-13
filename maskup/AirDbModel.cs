@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
-    using POCO;
+    using maskup.domain;
 
     public class AirDbModel : DbContext
     {
