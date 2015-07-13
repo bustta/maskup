@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feeder", "feeder\feeder.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maskup.domain", "maskup.domain\maskup.domain.csproj", "{F28CB53C-4636-4198-9D03-CAF919F84CBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maskup.service", "maskup.service\maskup.service.csproj", "{546D51CF-C4FA-4859-857C-48E1C9E8226F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maskup.repository", "maskup.repository\maskup.repository.csproj", "{27FDE5B6-0E06-4077-A283-793E6752F8B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{F28CB53C-4636-4198-9D03-CAF919F84CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F28CB53C-4636-4198-9D03-CAF919F84CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F28CB53C-4636-4198-9D03-CAF919F84CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{546D51CF-C4FA-4859-857C-48E1C9E8226F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{546D51CF-C4FA-4859-857C-48E1C9E8226F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{546D51CF-C4FA-4859-857C-48E1C9E8226F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{546D51CF-C4FA-4859-857C-48E1C9E8226F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27FDE5B6-0E06-4077-A283-793E6752F8B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27FDE5B6-0E06-4077-A283-793E6752F8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27FDE5B6-0E06-4077-A283-793E6752F8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27FDE5B6-0E06-4077-A283-793E6752F8B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
