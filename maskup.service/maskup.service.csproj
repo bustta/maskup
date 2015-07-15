@@ -41,7 +41,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirCondictionService.cs" />
+    <Compile Include="Interface\IAirCondictionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\maskup.domain\maskup.domain.csproj">
+      <Project>{f28cb53c-4636-4198-9d03-caf919f84cbf}</Project>
+      <Name>maskup.domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\maskup.repository\maskup.repository.csproj">
+      <Project>{27fde5b6-0e06-4077-a283-793e6752f8b3}</Project>
+      <Name>maskup.repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

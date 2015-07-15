@@ -259,9 +259,9 @@
       <Project>{f28cb53c-4636-4198-9d03-caf919f84cbf}</Project>
       <Name>maskup.domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\maskup.repository\maskup.repository.csproj">
-      <Project>{27fde5b6-0e06-4077-a283-793e6752f8b3}</Project>
-      <Name>maskup.repository</Name>
+    <ProjectReference Include="..\maskup.service\maskup.service.csproj">
+      <Project>{546d51cf-c4fa-4859-857c-48e1c9e8226f}</Project>
+      <Name>maskup.service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

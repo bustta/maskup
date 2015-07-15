@@ -9,7 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using maskup.domain;
-using maskup.repository;
+using maskup.service;
 
 namespace maskup.Controllers
 {
@@ -20,8 +20,8 @@ namespace maskup.Controllers
         // GET: AirCondictions
         public ActionResult Index()
         {
-            AirCondictionRepo repo = new AirCondictionRepo();
-            return View(repo.GetAll());
+            AirCondictionService service = new AirCondictionService();
+            return View(service.GetLatestAndSort());
         }
 
         // GET: AirCondictions/Details/5
