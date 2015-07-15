@@ -1,10 +1,10 @@
 namespace feeder
 {
-    using feeder.Binding;
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity;
     using System.Linq;
+    using maskup.domain;
 
     public partial class AirModel : DbContext
     {
