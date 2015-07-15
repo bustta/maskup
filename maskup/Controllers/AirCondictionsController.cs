@@ -9,33 +9,35 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using maskup.domain;
+using maskup.repository;
 
 namespace maskup.Controllers
 {
     public class AirCondictionsController : Controller
     {
-        private AirDbModel db = new AirDbModel();
+        //private AirDbModel db = new AirDbModel();
 
         // GET: AirCondictions
         public ActionResult Index()
         {
-            return View(db.AirCondictions.ToList());
+            AirCondictionRepo repo = new AirCondictionRepo();
+            return View(repo.Get());
         }
 
         // GET: AirCondictions/Details/5
-        public ActionResult Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AirCondiction airCondiction = db.AirCondictions.Find(id);
-            if (airCondiction == null)
-            {
-                return HttpNotFound();
-            }
-            return View(airCondiction);
-        }
+//         public ActionResult Details(Guid? id)
+//         {
+//             if (id == null)
+//             {
+//                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+//             }
+//             AirCondiction airCondiction = db.AirCondictions.Find(id);
+//             if (airCondiction == null)
+//             {
+//                 return HttpNotFound();
+//             }
+//             return View(airCondiction);
+//         }
 
         //// GET: AirCondictions/Create
         //public ActionResult Create()
@@ -120,10 +122,10 @@ namespace maskup.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
+//             if (disposing)
+//             {
+//                 db.Dispose();
+//             }
             base.Dispose(disposing);
         }
     }
