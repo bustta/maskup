@@ -21,7 +21,7 @@ namespace maskup.Controllers
         public ActionResult Index()
         {
             AirCondictionRepo repo = new AirCondictionRepo();
-            return View(repo.Get());
+            return View(repo.GetAll());
         }
 
         // GET: AirCondictions/Details/5

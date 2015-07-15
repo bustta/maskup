@@ -54,6 +54,7 @@
     <Compile Include="AirCondictionRepo.cs" />
     <Compile Include="AirDbModel.cs" />
     <Compile Include="C__MigrationHistory.cs" />
+    <Compile Include="Interface\IAirCondictionRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
