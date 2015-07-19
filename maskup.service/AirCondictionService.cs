@@ -36,10 +36,13 @@ namespace maskup.service
             var anchor = db.AirCondictions.OrderByDescending(x => x.datetime).First();
             var result = db.AirCondictions
                 .Where(x => (
+                    x.datetime.Year == anchor.datetime.Year &&
+                    x.datetime.Month ==  anchor.datetime.Month &&
+                    x.datetime.Day == anchor.datetime.Day &&
                     x.datetime.Hour == anchor.datetime.Hour &&
                     x.datetime.Minute == anchor.datetime.Minute
                     ))
-                .OrderBy(x => x.pm25)
+                .OrderByDescending(x => x.pm25)
                 .ToList();
 
             // TODO: handle the ArgumentNullException and InvalidOperationException, but not important in fact          
