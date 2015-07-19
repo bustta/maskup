@@ -2,29 +2,50 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using maskup.domain;
-using maskup.repository;
+
 
 namespace maskup.service
 {
     public class AirCondictionService : IAirCondictionService
     {
-        private AirCondictionRepo repo;
+        private AirServiceDbModel db;
         public AirCondictionService()
         {
-            repo = new AirCondictionRepo();
+            db = new AirServiceDbModel();
         }
         public void Dispose()
         {
-            repo.Dispose();
+            db.Dispose();
+        }
+        public List<AirCondiction> GetAll()
+        {
+            List<AirCondiction> airCondictionList = db.AirCondictions.ToList();
+            return airCondictionList;
+        }
+
+        public AirCondiction GetById(Guid uid)
+        {
+            AirCondiction airCondiction = db.AirCondictions.Find(uid);
+            return airCondiction;
         }
 
         public List<AirCondiction> GetLatestAndSort()
         {
-            // TODO
-            return repo.GetAll();
+            
+            var anchor = db.AirCondictions.OrderByDescending(x => x.datetime).First();
+            var result = db.AirCondictions
+                .Where(x => (
+                    x.datetime.Hour == anchor.datetime.Hour &&
+                    x.datetime.Minute == anchor.datetime.Minute
+                    ))
+                .OrderBy(x => x.pm25)
+                .ToList();
+
+            // TODO: handle the ArgumentNullException and InvalidOperationException, but not important in fact          
+            
+
+            return result;
         }
     }
 }

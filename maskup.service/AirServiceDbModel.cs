@@ -1,12 +1,15 @@
-namespace maskup.repository
+namespace maskup.service
 {
+    using System;
     using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
     using maskup.domain;
 
-    public partial class AirDbModel : DbContext
+    public partial class AirServiceDbModel : DbContext
     {
-        public AirDbModel()
-            : base("name=AirDbModel")
+        public AirServiceDbModel()
+            : base("name=AirServiceDbModel")
         {
         }
 

@@ -1,4 +1,4 @@
-namespace maskup.repository
+namespace maskup.service
 {
     using System;
     using System.Collections.Generic;
