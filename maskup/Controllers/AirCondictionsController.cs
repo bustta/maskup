@@ -15,13 +15,21 @@ namespace maskup.Controllers
 {
     public class AirCondictionsController : Controller
     {
-        //private AirDbModel db = new AirDbModel();
+        private AirCondictionService airService;
+        public AirCondictionsController()
+        {
+            airService = new AirCondictionService();
+        } 
 
         // GET: AirCondictions
         public ActionResult Index()
+        {            
+            return View(airService.GetLatestAndSort());
+        }
+
+        public ActionResult History()
         {
-            AirCondictionService service = new AirCondictionService();
-            return View(service.GetLatestAndSort());
+            return View(airService.GetAll());
         }
 
         // GET: AirCondictions/Details/5
@@ -122,10 +130,7 @@ namespace maskup.Controllers
 
         protected override void Dispose(bool disposing)
         {
-//             if (disposing)
-//             {
-//                 db.Dispose();
-//             }
+            airService.Dispose();
             base.Dispose(disposing);
         }
     }

@@ -20,13 +20,13 @@ namespace maskup.service
         }
         public List<AirCondiction> GetAll()
         {
-            List<AirCondiction> airCondictionList = db.AirCondictions.ToList();
+            var airCondictionList = db.AirCondictions.OrderByDescending(x => x.datetime).ToList();
             return airCondictionList;
         }
 
         public AirCondiction GetById(Guid uid)
         {
-            AirCondiction airCondiction = db.AirCondictions.Find(uid);
+            var airCondiction = db.AirCondictions.Find(uid);
             return airCondiction;
         }
 

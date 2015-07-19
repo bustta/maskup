@@ -22,17 +22,16 @@
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
                 <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    @Html.ActionLink("首頁", "Index", "Home", "", new { @class = "mdl-navigation__link" })
-                    @Html.ActionLink("全台空氣品質", "Index", "AirCondictions", "", new { @class = "mdl-navigation__link" })
+                    @Html.ActionLink("即期空氣品質", "Index", "AirCondictions", "", new { @class = "mdl-navigation__link" })
+                    @Html.ActionLink("歷史空氣品質", "History", "AirCondictions", "", new { @class = "mdl-navigation__link" })
                 </nav>
             </div>
         </header>
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">MASKUP</span>
             <nav class="mdl-navigation">
-                @Html.ActionLink("首頁", "Index", "Home", "", new { @class = "mdl-navigation__link" })
-                @Html.ActionLink("全台空氣品質", "Index", "AirCondictions", "", new { @class = "mdl-navigation__link" })
-
+                @Html.ActionLink("即期空氣品質", "Index", "AirCondictions", "", new { @class = "mdl-navigation__link" })
+                @Html.ActionLink("歷史空氣品質", "History", "AirCondictions", "", new { @class = "mdl-navigation__link" })
             </nav>
         </div>
         <main class="mdl-layout__content">
